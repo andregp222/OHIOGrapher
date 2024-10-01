@@ -58,10 +58,5 @@ def DrawGraph(data:list):
     print("file" + fname + "ehas been saved")
 
     pg.display.flip()
-    while RUNNING:
-        pg.display.flip()
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
-                RUNNING = False
     pg.quit()
     pass
