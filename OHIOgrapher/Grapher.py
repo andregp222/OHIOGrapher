@@ -55,7 +55,7 @@ def DrawGraph(data:list):
     # can save as .bmp .tga .png or .jpg
     fname = "graph.png"
     pg.image.save(win, fname)
-    print("file" + fname + "ehas been saved")
+    print("file" + fname + " has been saved!")
 
     pg.display.flip()
     pg.quit()
