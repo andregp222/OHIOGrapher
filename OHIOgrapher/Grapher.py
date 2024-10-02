@@ -42,13 +42,13 @@ def DrawGraph(data:list):
     i = 0
     while j < len(dataprocessed):
         text_surface = my_font.render(str(data[j][1]), True, (0, 0, 0))
-        win.blit(text_surface, (0,dataprocessed[j][1]-20))
+        win.blit(text_surface, (0,dataprocessed[j][1]))
 
         text_surface = my_font.render(str(data[j][0]), True, (0, 0, 0))
-        win.blit(text_surface, (dataprocessed[j][0]-60,852))
+        win.blit(text_surface, (dataprocessed[j][0],852))
         
         if j > 0 :
-            pg.draw.line(win, (255,0,0),dataprocessed[j-1], dataprocessed[j], 5)
+            pg.draw.line(win, (255,0,0),dataprocessed[j-1], dataprocessed[j], 3)
         j+=1
 
     # now save the drawing
