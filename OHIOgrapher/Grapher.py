@@ -1,24 +1,31 @@
 import pygame as pg
+import sys
+import numpy as np
+width = 900
+height = 900
+fontSize = 20
+guideLineThickness = 3
+graphLineThickness = 3
+PointThickness = 5
+GraphColors = [(255,255,255), (125, 125, 125), (255,0,0), (0,0,0)]
+###### COLOR CHANGERHELPER #######################
+BACKGROUND = 0
+GUIDE_LINE = 1
+GRAPH_LINE = 2
+POINTS = 3
+
+
+
 def DrawGraph(data:list):
-    # pygame uses (r, g, b) color tuples
-    white = (255, 255, 255)
-    gray = (125, 125, 125)
 
-    width = 900
-    height = 900
-    RUNNING = True
-
-    # create the display window
     win = pg.display.set_mode((width, height))
-    # optional title bar caption
     pg.display.set_caption("Graph")
-    # default background is black, so make it white
-    win.fill(white)
+    win.fill(GraphColors[BACKGROUND])
 
     dataprocessed = []
     i = 0
-    maxY = 0
-    maxX = 0
+    maxY = -sys.float_info.max
+    maxX = -sys.float_info.max
     while i < len(data):
         if data[i][0] > maxX:
             maxX = data[i][0]
@@ -26,29 +33,30 @@ def DrawGraph(data:list):
             maxY = data[i][1]
 
         i+=1
-
     for d in data:
-        dataprocessed.append([(d[0]*800/maxX)+50, (((d[1]*800/maxY)-425)*-1)+425])
+        dataprocessed.append([(d[0]*(width-100)/maxX)+50, (((d[1]*(height-100)/maxY)-((height-50)/2))*-1)+(height-50)/2])
 
 
     j = 0
 
     #drawBase
-    pg.draw.line(win, gray, (50,0), (50,900),3)
-    pg.draw.line(win, gray, (0,850), (900,850),3)
+    pg.draw.line(win, GraphColors[GUIDE_LINE], (50,0), (50,height),guideLineThickness)
+    pg.draw.line(win, GraphColors[GUIDE_LINE], (0,height-50), (width,width-50),guideLineThickness)
 
     pg.font.init()
-    my_font = pg.font.SysFont('Arial', 20)
+    my_font = pg.font.SysFont('Arial', fontSize)
     i = 0
     while j < len(dataprocessed):
         text_surface = my_font.render(str(data[j][1]), True, (0, 0, 0))
         win.blit(text_surface, (0,dataprocessed[j][1]))
 
         text_surface = my_font.render(str(data[j][0]), True, (0, 0, 0))
-        win.blit(text_surface, (dataprocessed[j][0],852))
+        win.blit(text_surface, (dataprocessed[j][0],height-48))
         
         if j > 0 :
-            pg.draw.line(win, (255,0,0),dataprocessed[j-1], dataprocessed[j], 3)
+            pg.draw.line(win, GraphColors[GRAPH_LINE],dataprocessed[j-1], dataprocessed[j], graphLineThickness)
+
+        pg.draw.circle(win, GraphColors[POINTS], dataprocessed[j], PointThickness, 0)
         j+=1
 
     # now save the drawing
