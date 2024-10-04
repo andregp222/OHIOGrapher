@@ -57,10 +57,12 @@ def DrawGraph(data:list):
         if j > 0 :
             pg.draw.line(win, GraphColors[GRAPH_LINE],dataprocessed[j-1], dataprocessed[j], graphLineThickness)
 
-        pg.draw.circle(psSurface, GraphColors[POINTS], dataprocessed[j], PointThickness, 0)
         j+=1
     
-    win.blit(psSurface, (0,0))
+    while i < len(dataprocessed):
+        pg.draw.circle(win, GraphColors[POINTS], dataprocessed[i], PointThickness, 0)
+
+        i+=1
 
     # now save the drawing
     # can save as .bmp .tga .png or .jpg
