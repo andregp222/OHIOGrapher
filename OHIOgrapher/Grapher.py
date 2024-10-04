@@ -60,7 +60,7 @@ def DrawGraph(data:list):
         pg.draw.circle(psSurface, GraphColors[POINTS], dataprocessed[j], PointThickness, 0)
         j+=1
     
-    win.blit(psSurface, (0,0), (width,height))
+    win.blit(psSurface, (0,0))
 
     # now save the drawing
     # can save as .bmp .tga .png or .jpg
