@@ -46,6 +46,7 @@ def DrawGraph(data:list):
     pg.font.init()
     my_font = pg.font.SysFont('Arial', fontSize)
     i = 0
+    psSurface = pg.Surface((width, height))
     while j < len(dataprocessed):
         text_surface = my_font.render(str(data[j][1]), True, (0, 0, 0))
         win.blit(text_surface, (0,dataprocessed[j][1]))
@@ -56,8 +57,10 @@ def DrawGraph(data:list):
         if j > 0 :
             pg.draw.line(win, GraphColors[GRAPH_LINE],dataprocessed[j-1], dataprocessed[j], graphLineThickness)
 
-        pg.draw.circle(win, GraphColors[POINTS], dataprocessed[j], PointThickness, 0)
+        pg.draw.circle(psSurface, GraphColors[POINTS], dataprocessed[j], PointThickness, 0)
         j+=1
+    
+    win.blit(psSurface, (0,0))
 
     # now save the drawing
     # can save as .bmp .tga .png or .jpg
