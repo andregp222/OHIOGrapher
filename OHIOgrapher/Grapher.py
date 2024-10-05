@@ -46,7 +46,6 @@ def DrawGraph(data:list):
     pg.font.init()
     my_font = pg.font.SysFont('Arial', fontSize)
     i = 0
-    psSurface = pg.Surface()
     while j < len(dataprocessed):
         text_surface = my_font.render(str(data[j][1]), True, (0, 0, 0))
         win.blit(text_surface, (0,dataprocessed[j][1]))
