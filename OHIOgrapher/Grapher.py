@@ -77,7 +77,7 @@ def DrawGraph(data:list):
     # now save the drawing
     # can save as .bmp .tga .png or .jpg
     fname = "graph.png"
-    #pg.image.save(win, fname)
+    pg.image.save(win, fname)
     print("file: " + fname + " has been saved!")
     ren.Save("Test.png")
 
