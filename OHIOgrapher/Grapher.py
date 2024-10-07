@@ -79,7 +79,7 @@ def DrawGraph(data:list):
     fname = "graph.png"
     pg.image.save(win, fname)
     print("file: " + fname + " has been saved!")
-    ren.Save("Test.png")
+    ren.Save("graph2.png")
 
     pg.display.flip()
     pg.quit()
