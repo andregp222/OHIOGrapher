@@ -205,6 +205,7 @@ class Renderer:
             d.append(r)
         image = png.from_array(d, "RGB")
         image.save(fileName)
+        print("saved: " + fileName + " to disk")
 
 # r = Renderer(100,100)
 # r.DrawText("0123456789 .",(0,0), (255,255,255))
