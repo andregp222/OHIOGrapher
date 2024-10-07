@@ -8,12 +8,13 @@ fontSize = 20
 guideLineThickness = 3
 graphLineThickness = 3
 PointThickness = 5
-GraphColors = [(255,255,255), (125, 125, 125), (255,0,0), (0,0,0)]
+GraphColors = [(255,255,255), (125, 125, 125), (255,0,0), (0,0,0), (0,0,0)]
 ###### COLOR CHANGERHELPER #######################
 BACKGROUND = 0
 GUIDE_LINE = 1
 GRAPH_LINE = 2
 POINTS = 3
+TEXT = 4
 
 
 
@@ -54,10 +55,11 @@ def DrawGraph(data:list):
     my_font = pg.font.SysFont('Arial', fontSize)
     i = 0
     while j < len(dataprocessed):
-        text_surface = my_font.render(str(data[j][1]), True, (0, 0, 0))
+        text_surface = my_font.render(str(data[j][1]), True, GraphColors[TEXT])
         win.blit(text_surface, (0,dataprocessed[j][1]))
+        ren.DrawText(str(data[j][1]), (0,dataprocessed[j][1]), GraphColors[TEXT], 1)
 
-        text_surface = my_font.render(str(data[j][0]), True, (0, 0, 0))
+        text_surface = my_font.render(str(data[j][0]), True, GraphColors[TEXT])
         win.blit(text_surface, (dataprocessed[j][0],height-48))
         
         if j > 0 :
