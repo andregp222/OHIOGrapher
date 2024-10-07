@@ -1,4 +1,4 @@
-# OHIOgrapher
+                                # OHIOgrapher
 ### the jankiest graph maker tool for python
 
 **_to install OHIOgrapher just do:_**

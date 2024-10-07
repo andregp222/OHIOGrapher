@@ -1,4 +1,5 @@
 import pygame as pg
+import Drawer as dr
 import sys
 import numpy as np
 width = 900
@@ -17,10 +18,13 @@ POINTS = 3
 
 
 def DrawGraph(data:list):
+    ren = dr.Renderer(width, height)
 
     win = pg.display.set_mode((width, height))
     pg.display.set_caption("Graph")
     win.fill(GraphColors[BACKGROUND])
+
+    ren.Fill(GraphColors[BACKGROUND])
 
     dataprocessed = []
     i = 0
@@ -43,6 +47,9 @@ def DrawGraph(data:list):
     pg.draw.line(win, GraphColors[GUIDE_LINE], (50,0), (50,height),guideLineThickness)
     pg.draw.line(win, GraphColors[GUIDE_LINE], (0,height-50), (width,width-50),guideLineThickness)
 
+    ren.DrawLine((50,0), (50,height), GraphColors[GUIDE_LINE], guideLineThickness)
+    ren.DrawLine((0,height-50), (width,width-50), GraphColors[GUIDE_LINE], guideLineThickness)
+
     pg.font.init()
     my_font = pg.font.SysFont('Arial', fontSize)
     i = 0
@@ -55,6 +62,7 @@ def DrawGraph(data:list):
         
         if j > 0 :
             pg.draw.line(win, GraphColors[GRAPH_LINE],dataprocessed[j-1], dataprocessed[j], graphLineThickness)
+            ren.DrawLine(dataprocessed[j-1], dataprocessed[j], GraphColors[GRAPH_LINE], graphLineThickness)
 
         j+=1
     
@@ -66,9 +74,12 @@ def DrawGraph(data:list):
     # now save the drawing
     # can save as .bmp .tga .png or .jpg
     fname = "graph.png"
-    pg.image.save(win, fname)
-    print("file" + fname + " has been saved!")
+    #pg.image.save(win, fname)
+    print("file: " + fname + " has been saved!")
+    ren.Save("Test.png")
 
     pg.display.flip()
     pg.quit()
     pass
+
+DrawGraph([(0,0),(100,100),(200,300)])
