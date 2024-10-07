@@ -185,11 +185,11 @@ class Renderer:
         while i < len(text):
             c = Letters[text[i]]
             j = 0
-            while j < len(c):
+            while j < len(c)*textSize:
                 k = 0
-                while k < len(c[j]):
-                    if c[j][k] == 1:
-                        self.data[math.floor(Pos[1]+j)][math.floor(Pos[0] +k+ (i*len(c[j])))] = textColor 
+                while k < len(c[math.floor(j/textSize)])*textSize:
+                    if c[math.floor(j/textSize)][math.floor(k/textSize)] == 1:
+                        self.data[math.floor(Pos[1]+j)][math.floor(Pos[0] +k+ (i*len(c[math.floor(j/textSize)])*textSize))] = textColor 
                     k+=1
                 j+=1
             i+=1
@@ -206,7 +206,7 @@ class Renderer:
         image = png.from_array(d, "RGB")
         image.save(fileName)
 
-r = Renderer(100,100)
-r.DrawText("0123456789 .",(0,0), (255,255,255))
-r.DrawText("2.5", (0,8), (255,0,0), 1)
-r.Save("TESTTEXT.png")
+# r = Renderer(100,100)
+# r.DrawText("0123456789 .",(0,0), (255,255,255))
+# r.DrawText("2.5", (0,8), (255,0,0), 2)
+# r.Save("TESTTEXT.png")

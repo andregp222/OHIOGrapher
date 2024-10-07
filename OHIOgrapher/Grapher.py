@@ -2,8 +2,8 @@ import pygame as pg
 import Drawer as dr
 import sys
 import numpy as np
-width = 900
-height = 900
+width = 1200
+height = 1200
 fontSize = 20
 guideLineThickness = 3
 graphLineThickness = 3
@@ -39,7 +39,7 @@ def DrawGraph(data:list):
 
         i+=1
     for d in data:
-        dataprocessed.append([(d[0]*(width-100)/maxX)+50, (((d[1]*(height-100)/maxY)-((height-50)/2))*-1)+(height-50)/2])
+        dataprocessed.append([(d[0]*(width-200)/maxX)+100, (((d[1]*(height-100)/maxY)-((height-50)/2))*-1)+(height-50)/2])
 
 
     j = 0
@@ -48,7 +48,7 @@ def DrawGraph(data:list):
     pg.draw.line(win, GraphColors[GUIDE_LINE], (50,0), (50,height),guideLineThickness)
     pg.draw.line(win, GraphColors[GUIDE_LINE], (0,height-50), (width,width-50),guideLineThickness)
 
-    ren.DrawLine((50,0), (50,height), GraphColors[GUIDE_LINE], guideLineThickness)
+    ren.DrawLine((100,0), (100,height), GraphColors[GUIDE_LINE], guideLineThickness)
     ren.DrawLine((0,height-50), (width,width-50), GraphColors[GUIDE_LINE], guideLineThickness)
 
     pg.font.init()
@@ -57,10 +57,11 @@ def DrawGraph(data:list):
     while j < len(dataprocessed):
         text_surface = my_font.render(str(data[j][1]), True, GraphColors[TEXT])
         win.blit(text_surface, (0,dataprocessed[j][1]))
-        ren.DrawText(str(data[j][1]), (0,dataprocessed[j][1]), GraphColors[TEXT], 1)
+        ren.DrawText(str(data[j][1]), (0,dataprocessed[j][1]), GraphColors[TEXT], 3)
 
         text_surface = my_font.render(str(data[j][0]), True, GraphColors[TEXT])
         win.blit(text_surface, (dataprocessed[j][0],height-48))
+        ren.DrawText(str(data[j][1]), (dataprocessed[j][0],height-45), GraphColors[TEXT], 3)
         
         if j > 0 :
             pg.draw.line(win, GraphColors[GRAPH_LINE],dataprocessed[j-1], dataprocessed[j], graphLineThickness)
