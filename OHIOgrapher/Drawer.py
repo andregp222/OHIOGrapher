@@ -157,8 +157,6 @@ class Renderer:
         if distX  >= distY:
             while i < distX:
                 iY = lerp(startPos[1], endPos[1], i/distX)
-                print(iY)
-                print("\n")
                 self.data[math.floor(iY)][math.floor(startPos[0] + i)] = lineColor
                 if lineThickness >1:
                     j = math.floor(-lineThickness/2)
@@ -169,8 +167,6 @@ class Renderer:
         else:
             while i < distY:
                 iX = lerp(startPos[0], endPos[0], i/distY)
-                print(iX)
-                print("\n")
                 self.data[math.floor(startPos[1] + i)][math.floor(iX)] = lineColor
                 if lineThickness >1:
                     j = math.floor(-lineThickness/2)
