@@ -224,6 +224,6 @@ class Renderer:
         image.save(fileName)
         print("saved: " + fileName + " to disk")
 
-r = Renderer(100,100)
-r.DrawCircle((30,30), 5 , (255,255,255))
-r.Save("TESTCircle.png")
+# r = Renderer(100,100)
+# r.DrawCircle((30,30), 5 , (255,255,255))
+# r.Save("TESTCircle.png")
