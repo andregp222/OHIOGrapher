@@ -55,6 +55,7 @@ def DrawGraph(data:list):
     
     while i < len(dataprocessed):
         #draw a circle
+        ren.DrawCircle(dataprocessed,PointThickness, GraphColors[POINTS])
 
         i+=1
 
