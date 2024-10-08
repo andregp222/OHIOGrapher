@@ -19,7 +19,7 @@ TEXT = 4
 
 
 def DrawGraph(data:list):
-    ren = Renderer(width, height)
+    ren = dr.Renderer(width, height)
 
     win = pg.display.set_mode((width, height))
     pg.display.set_caption("Graph")
