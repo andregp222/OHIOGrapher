@@ -8,5 +8,5 @@ dependencies = [
     "requests",
     'importlib-metadata; python_version<"3.10"',
     'pygame',
-    'png @ https://gitlab.com/drj11/pypng.git'
+    'png @ https://gitlab.com/drj11/pypng@pypng-0.20231004.0'
 ]
