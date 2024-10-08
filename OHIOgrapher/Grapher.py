@@ -216,7 +216,7 @@ class Renderer:
 
 
 import pygame as pg
-#import Drawer as dr
+import Drawer as dr
 import sys
 import numpy as np
 width = 1200
