@@ -3,7 +3,7 @@
 
 **_to install OHIOgrapher just do:_**
 ```cmd
-pip install git+https://github.com/andregp222/OHIOGrapher.git
+pip install git+https://github.com/andregp222/OHIOGrapher.git@APLHA-PLS-DO-NOT-USE
 ```
 
 **_to use OHIOgrapher just:_**
