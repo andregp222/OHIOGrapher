@@ -1,4 +1,4 @@
-import png
+import OHIOgrapher.png as png
 import math
 
 Letters = {
