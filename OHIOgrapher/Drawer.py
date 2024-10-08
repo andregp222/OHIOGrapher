@@ -164,7 +164,7 @@ class Renderer:
             while j < 2*radius:
                 v = Dist(centerPos, (startPos[0]+j, startPos[1]+i))
                 if v <= radius:
-                    self.data[startPos[1]+i][startPos[0]+j] = fillColor
+                    self.data[math.floor(startPos[1]+i)][math.floor(startPos[0]+j)] = fillColor
                 j+=1
 
             i+=1
