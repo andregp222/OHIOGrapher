@@ -1,4 +1,3 @@
-import pygame as pg
 import OHIOgrapher.Drawer as dr
 import sys
 import numpy as np
@@ -57,11 +56,11 @@ def DrawGraph(data:list):
     while j < len(dataprocessed):
         text_surface = my_font.render(str(data[j][1]), True, GraphColors[TEXT])
         win.blit(text_surface, (0,dataprocessed[j][1]))
-        ren.DrawText(str(data[j][1]), (0,dataprocessed[j][1]), GraphColors[TEXT], 3)
+        ren.DrawText(str(data[j][1]), (0,dataprocessed[j][1]), GraphColors[TEXT], 2)
 
         text_surface = my_font.render(str(data[j][0]), True, GraphColors[TEXT])
         win.blit(text_surface, (dataprocessed[j][0],height-48))
-        ren.DrawText(str(data[j][1]), (dataprocessed[j][0],height-45), GraphColors[TEXT], 3)
+        ren.DrawText(str(data[j][1]), (dataprocessed[j][0],height-45), GraphColors[TEXT], 2)
         
         if j > 0 :
             pg.draw.line(win, GraphColors[GRAPH_LINE],dataprocessed[j-1], dataprocessed[j], graphLineThickness)
