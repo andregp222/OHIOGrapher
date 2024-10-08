@@ -65,5 +65,3 @@ def DrawGraph(data:list):
     print("file: " + fname + " has been saved!")
     ren.Save(fname)
     pass
-
-DrawGraph([(0,0),(100,100),(200,300)])

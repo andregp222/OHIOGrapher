@@ -222,7 +222,6 @@ class Renderer:
             d.append(r)
         image = png.from_array(d, "RGB")
         image.save(fileName)
-        print("saved: " + fileName + " to disk")
 
 # r = Renderer(100,100)
 # r.DrawCircle((30,30), 5 , (255,255,255))
