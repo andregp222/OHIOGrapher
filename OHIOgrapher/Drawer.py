@@ -127,6 +127,12 @@ Letters = {
 def lerp(v0, v1,t):
   return (1 - t) * v0 + t * v1
 
+def Dist(v0:tuple, v1:tuple):
+    a = v1[0]-v0[0]
+    b = v1[1]-v0[1]
+    return math.sqrt((a*a)+(b*b))
+    pass
+
 class Renderer:
     def __init__(self, width, height) -> None:
         self.data = []
@@ -157,8 +163,6 @@ class Renderer:
             j = 0
             while j < 2*radius:
                 v = Dist(centerPos, (startPos[0]+j, startPos[1]+i))
-                print(v)
-                print(v < radius)
                 if v <= radius:
                     self.data[startPos[1]+i][startPos[0]+j] = fillColor
                 j+=1
@@ -220,7 +224,6 @@ class Renderer:
         image.save(fileName)
         print("saved: " + fileName + " to disk")
 
-# r = Renderer(100,100)
-# r.DrawText("0123456789 .",(0,0), (255,255,255))
-# r.DrawText("2.5", (0,8), (255,0,0), 2)
-# r.Save("TESTTEXT.png")
+r = Renderer(100,100)
+r.DrawCircle((30,30), 5 , (255,255,255))
+r.Save("TESTCircle.png")

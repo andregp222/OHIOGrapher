@@ -127,6 +127,12 @@ Letters = {
 def lerp(v0, v1,t):
   return (1 - t) * v0 + t * v1
 
+def Dist(v0:tuple, v1:tuple):
+    a = v1[0]-v0[0]
+    b = v1[1]-v0[1]
+    return math.sqrt((a*a)+(b*b))
+    pass
+
 class Renderer:
     def __init__(self, width, height) -> None:
         self.data = []
@@ -150,6 +156,21 @@ class Renderer:
                 j+=1
             i +=1
 
+    def DrawCircle(self, centerPos:tuple, radius:int, fillColor:tuple):
+        i = 0
+        startPos = (centerPos[0]-radius, centerPos[1]-radius)
+        while i < 2*radius:
+            j = 0
+            while j < 2*radius:
+                v = Dist(centerPos, (startPos[0]+j, startPos[1]+i))
+                if v <= radius:
+                    self.data[startPos[1]+i][startPos[0]+j] = fillColor
+                j+=1
+
+            i+=1
+
+        pass
+    
     def DrawLine(self,startPos:tuple, endPos:tuple, lineColor:tuple, lineThickness = 1):
         distX = endPos[0] - startPos[0]
         distY = endPos[1] - startPos[1]
@@ -157,8 +178,6 @@ class Renderer:
         if distX  >= distY:
             while i < distX:
                 iY = lerp(startPos[1], endPos[1], i/distX)
-                print(iY)
-                print("\n")
                 self.data[math.floor(iY)][math.floor(startPos[0] + i)] = lineColor
                 if lineThickness >1:
                     j = math.floor(-lineThickness/2)
@@ -169,8 +188,6 @@ class Renderer:
         else:
             while i < distY:
                 iX = lerp(startPos[0], endPos[0], i/distY)
-                print(iX)
-                print("\n")
                 self.data[math.floor(startPos[1] + i)][math.floor(iX)] = lineColor
                 if lineThickness >1:
                     j = math.floor(-lineThickness/2)
@@ -207,7 +224,6 @@ class Renderer:
         image.save(fileName)
         print("saved: " + fileName + " to disk")
 
-# r = Renderer(100,100)
-# r.DrawText("0123456789 .",(0,0), (255,255,255))
-# r.DrawText("2.5", (0,8), (255,0,0), 2)
-# r.Save("TESTTEXT.png")
+r = Renderer(100,100)
+r.DrawCircle((30,30), 5 , (255,255,255))
+r.Save("TESTCircle.png")
