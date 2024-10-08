@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools", "png"]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "OHIOgrapher"
@@ -7,6 +7,5 @@ version = "0.0.1"
 dependencies = [
     "requests",
     'importlib-metadata; python_version<"3.10"',
-    'pygame',
-    'png @ https://gitlab.com/drj11/pypng@pypng-0.20231004.0'
+    'pygame'
 ]
