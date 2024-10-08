@@ -150,6 +150,23 @@ class Renderer:
                 j+=1
             i +=1
 
+    def DrawCircle(self, centerPos:tuple, radius:int, fillColor:tuple):
+        i = 0
+        startPos = (centerPos[0]-radius, centerPos[1]-radius)
+        while i < 2*radius:
+            j = 0
+            while j < 2*radius:
+                v = Dist(centerPos, (startPos[0]+j, startPos[1]+i))
+                print(v)
+                print(v < radius)
+                if math.floor(v) <= radius:
+                    self.data[startPos[1]+i][startPos[0]+j] = fillColor
+                j+=1
+
+            i+=1
+
+        pass
+    
     def DrawLine(self,startPos:tuple, endPos:tuple, lineColor:tuple, lineThickness = 1):
         distX = endPos[0] - startPos[0]
         distY = endPos[1] - startPos[1]
