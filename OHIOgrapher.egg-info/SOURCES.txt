@@ -8,4 +8,5 @@ OHIOgrapher.egg-info/PKG-INFO
 OHIOgrapher.egg-info/SOURCES.txt
 OHIOgrapher.egg-info/dependency_links.txt
 OHIOgrapher.egg-info/not-zip-safe
+OHIOgrapher.egg-info/requires.txt
 OHIOgrapher.egg-info/top_level.txt

@@ -12,5 +12,7 @@ setup(
     zip_safe=False,
     include_package_data=True,
     platforms='any',
-    requires=["pygame"]
+    install_requires=[
+        "pygame",
+    ],
 )
