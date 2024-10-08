@@ -159,7 +159,7 @@ class Renderer:
                 v = Dist(centerPos, (startPos[0]+j, startPos[1]+i))
                 print(v)
                 print(v < radius)
-                if math.floor(v) <= radius:
+                if v <= radius:
                     self.data[startPos[1]+i][startPos[0]+j] = fillColor
                 j+=1
 
