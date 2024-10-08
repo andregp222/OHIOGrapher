@@ -12,4 +12,8 @@ setup(
     zip_safe=False,
     include_package_data=True,
     platforms='any',
+    dependencies = [
+    'importlib-metadata; python_version<"3.10"',
+    "pygame"
+    ]
 )
