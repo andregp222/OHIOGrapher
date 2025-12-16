@@ -16,7 +16,7 @@ og.DrawGraph(data)
 ```
 
 ### CAUTION:
-there is no maximum amount of values that you can put in the graph, but it can become kinda of a clisterf*ck to read
+there is no maximum amount of values that you can put in the graph, but it can become kinda of a clusterf*ck to read
 
 Example:
 ![](graph.png)
